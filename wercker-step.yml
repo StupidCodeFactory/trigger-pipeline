@@ -1,11 +1,12 @@
 name: trigger-pipeline
 version: 0.0.1
-description: Trigger a pipeline, usefule if you want to build cross application worflows
+description: Trigger a pipeline, useful if you want to build cross application worflows
 keywords:
   - pipeline-id
   - api-token
   - max-attempts
   - delay
+  - branch
 properties:
   pipeline-id:
     type: string
@@ -17,5 +18,8 @@ properties:
     type: integer
     required: false
   delay:
+    type: string
+    required: false
+  branch:
     type: string
     required: false

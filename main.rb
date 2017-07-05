@@ -6,7 +6,7 @@ delay       = Integer(ENV.fetch('WERCKER_TRIGGER_PIPELINE_DELAY'))        rescue
 pipeline_id = ENV['WERCKER_TRIGGER_PIPELINE_PIPELINE_ID']
 
 runner = WerckerAPI::PipelineRunner.new(
-  client, max_attemps: max_attemps || 180, delay: delay || 5
+  client, max_attempts: max_attemps || 180, delay: delay || 5
 )
 
 runner.run(pipeline_id)

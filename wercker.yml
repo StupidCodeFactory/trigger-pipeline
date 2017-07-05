@@ -2,6 +2,8 @@ box: wercker/default
 build:
   steps:
     - validate-wercker-step
+test:
+  steps:
     - stupidcodefactory/trigger-pipeline:
         pipeline-id: 595a6b1b24ac030100da5307
         api-token: $MY_API_TOKEN

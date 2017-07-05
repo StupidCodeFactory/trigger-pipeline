@@ -9,7 +9,7 @@ runner = WerckerAPI::PipelineRunner.new(
   client, max_attempts: max_attemps || 180, delay: delay || 5
 )
 
-runner.run(pipeline_id)
+run = runner.run(pipeline_id)
 
 unless run.status == 'passed'
   STDOUT.puts "Pipeline #{pipeline_id} failed. Aborting build."

@@ -1,7 +1,5 @@
 require 'wercker_api'
 
-STDOUT.puts ENV.inspect
-
 client      =  WerckerAPI::Client.new(ENV['WERCKER_TRIGGER_PIPELINE_API_TOKEN'])
 max_attemps = Integer(ENV.fetch('WERCKER_TRIGGER_PIPELINE_MAX_ATTEMPTS')) rescue nil
 delay       = Integer(ENV.fetch('WERCKER_TRIGGER_PIPELINE_DELAY'))        rescue nil
@@ -10,8 +8,10 @@ pipeline_id = ENV['WERCKER_TRIGGER_PIPELINE_PIPELINE_ID']
 runner = WerckerAPI::PipelineRunner.new(
   client, max_attempts: max_attemps || 180, delay: delay || 5
 )
-
-run = runner.run(pipeline_id)
+options = {
+  branch: ENV.fetch('WERCKER_TRIGGER_BRANCH', 'master')
+}
+run = runner.run(pipeline_id, options)
 
 unless run.status == 'passed'
   STDOUT.puts "Pipeline #{pipeline_id} failed. Aborting build."

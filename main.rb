@@ -18,7 +18,7 @@ options = {
 }
 run = runner.run(pipeline_id, options)
 
-unless run.status == 'passed'
+unless run.status == 'finished'
   STDOUT.puts "Pipeline #{pipeline_id} failed. Aborting build."
   exit 1
 end

@@ -1,5 +1,5 @@
 require 'wercker_api'
-
+STDOUT.sync = true
 client      =  WerckerAPI::Client.new(ENV['WERCKER_TRIGGER_PIPELINE_API_TOKEN'])
 max_attemps = Integer(ENV.fetch('WERCKER_TRIGGER_PIPELINE_MAX_ATTEMPTS')) rescue nil
 delay       = Integer(ENV.fetch('WERCKER_TRIGGER_PIPELINE_DELAY'))        rescue nil

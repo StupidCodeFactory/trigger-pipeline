@@ -1,5 +1,5 @@
 name: trigger-pipeline
-version: 0.13.0
+version: 0.14.0
 description: Trigger a pipeline, useful if you want to build cross application worflows
 keywords:
   - pipeline-id

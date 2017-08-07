@@ -14,8 +14,8 @@ git:  #{ENV.fetch('WERCKER_GIT_BRANCH')}:#{ENV.fetch('WERCKER_GIT_COMMIT')}
 EOM
 
 options = {
-  branch: ENV.fetch('WERCKER_TRIGGER_PIPELINE_BRANCH', 'master')
-  message:
+  branch: ENV.fetch('WERCKER_TRIGGER_PIPELINE_BRANCH', 'master'),
+  message: message
 }
 run = runner.run(pipeline_id, options)
 

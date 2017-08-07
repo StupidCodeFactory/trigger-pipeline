@@ -9,8 +9,7 @@ runner = WerckerAPI::PipelineRunner.new(
   client, max_attempts: max_attemps || 180, delay: delay || 5
 )
 message = <<-EOM
-application: #{ENV.fetch('WERCKER_APPLICATION_NAME')}
-git:  #{ENV.fetch('WERCKER_GIT_BRANCH')}:#{ENV.fetch('WERCKER_GIT_COMMIT')}
+#{ENV.fetch('WERCKER_APPLICATION_NAME')}: #{ENV.fetch('WERCKER_GIT_BRANCH')}:#{ENV.fetch('WERCKER_GIT_COMMIT')}
 EOM
 
 options = {
